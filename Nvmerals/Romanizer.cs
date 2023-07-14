@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Nvmerals
@@ -12,37 +13,24 @@ namespace Nvmerals
         // C - 100
         // D - 500
         // M - 1000
+        private static readonly IReadOnlyList<(int, string)> grapthars=new List<(int,string)>
+        {
+            (10,"X"),
+            (9,"IX"),
+            (5,"V"),
+            (4,"IV"),
+            (1,"I"),
+        };
         public static string Romanize(int value)
         {
             var sb = new StringBuilder();
 
-            value = DoTheNs(10,"X",value, sb);
-
-            value = DoTheNs(9,"IX",value, sb);
-
-            value = DoTheNs(5,"V",value, sb);
-
-            value = DoTheNs(4,"IV",value, sb);
-
-            value = DoTheNs(1,"I",value, sb);
+            foreach(var hammer in grapthars)
+            {
+                value = DoTheNs(hammer.Item1,hammer.Item2,value,sb);
+            }
 
             return sb.ToString();
-        }
-
-        private static int AddVWhenMoreThanFive(int value, StringBuilder sb)
-        {
-            return DoTheNs(5,"V",value,sb);
-        }
-
-        private static int DoTheIV(int value, StringBuilder sb)
-        {
-            return DoTheNs(4,"IV",value,sb);
-        }
-
-
-        private static int DoTheIX(int value, StringBuilder sb)
-        {
-            return DoTheNs(9,"IX",value, sb);
         }
         private static int DoTheNs(int n, string s, int value, StringBuilder sb)
         {
@@ -53,14 +41,6 @@ namespace Nvmerals
             }
 
             return value;
-        }
-        private static int DoTheXs(int value, StringBuilder sb)
-        {
-            return DoTheNs(10,"X",value,sb);
-        }
-        private static int DoTheIs(int value, StringBuilder sb)
-        {
-            return DoTheNs(1,"I",value,sb);
         }
     }
 }
