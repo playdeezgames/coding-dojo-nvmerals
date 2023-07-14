@@ -6,7 +6,8 @@ namespace Nvmerals
     {
         public static string Romanize(int value)
         {
-            if(value==8) return "VIII";
+            if(value==9) return "IX";
+            else if(value==8) return "VIII";
             else if(value==7) return "VII";
             else if(value==6) return "VI";
             else if(value==5) return "V";
