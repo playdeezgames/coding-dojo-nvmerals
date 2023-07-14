@@ -16,7 +16,7 @@ namespace Nvmerals
         {
             var sb = new StringBuilder();
 
-            if(value>=10)
+            while(value>=10)
             {
                 value -= 10;
                 sb.Append("X");
