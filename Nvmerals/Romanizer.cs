@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Nvmerals
@@ -31,14 +32,15 @@ namespace Nvmerals
         };
         public static string Romanize(int value)
         {
-            var sb = new StringBuilder();
-
-            foreach(var hammer in grapthars)
-            {
-                value = DoTheNs(hammer.number,hammer.text,value,sb);
-            }
-
-            return sb.ToString();
+            //
+            // aggregate grapthars DoTheNs
+            return grapthars.Aggregate(
+                (value,new StringBuilder()),
+                (a,b)=>(DoTheNs(b.number,b.text,a.Item1,a.Item2),a.Item2)).Item2.ToString();
+            // foreach(var hammer in grapthars)
+            // {
+            //     value = DoTheNs(hammer.number,hammer.text,value,sb);
+            // }
         }
         private static int DoTheNs(int n, string s, int value, StringBuilder sb)
         {
