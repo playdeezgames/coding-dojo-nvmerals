@@ -13,8 +13,9 @@ namespace Nvmerals
         // C - 100
         // D - 500
         // M - 1000
-        private static readonly IReadOnlyList<(int, string)> grapthars=new List<(int,string)>
+        private static readonly IReadOnlyList<(int number, string text)> grapthars=new List<(int,string)>
         {
+            (50,"L"),
             (40,"XL"),
             (10,"X"),
             (9,"IX"),
@@ -28,7 +29,7 @@ namespace Nvmerals
 
             foreach(var hammer in grapthars)
             {
-                value = DoTheNs(hammer.Item1,hammer.Item2,value,sb);
+                value = DoTheNs(hammer.number,hammer.text,value,sb);
             }
 
             return sb.ToString();
