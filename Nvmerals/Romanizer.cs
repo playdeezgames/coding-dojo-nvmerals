@@ -16,15 +16,15 @@ namespace Nvmerals
         {
             var sb = new StringBuilder();
 
-            value = DoTheXs(value, sb);
+            value = DoTheNs(10,"X",value, sb);
 
-            value = DoTheIX(value, sb);
+            value = DoTheNs(9,"IX",value, sb);
 
-            value = AddVWhenMoreThanFive(value, sb);
+            value = DoTheNs(5,"V",value, sb);
 
-            value = DoTheIV(value, sb);
+            value = DoTheNs(4,"IV",value, sb);
 
-            value = DoTheIs(value, sb);
+            value = DoTheNs(1,"I",value, sb);
 
             return sb.ToString();
         }
