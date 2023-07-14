@@ -16,11 +16,7 @@ namespace Nvmerals
         {
             var sb = new StringBuilder();
 
-            while(value>=10)
-            {
-                value -= 10;
-                sb.Append("X");
-            }
+            value = DoTheXs(value, sb);
 
             value = DoTheIX(value, sb);
 
@@ -31,17 +27,6 @@ namespace Nvmerals
             value = DoTheIs(value, sb);
 
             return sb.ToString();
-        }
-
-        private static int DoTheIX(int value, StringBuilder sb)
-        {
-            if (value == 9)
-            {
-                value -= 9;
-                sb.Append("IX");
-            }
-
-            return value;
         }
 
         private static int AddVWhenMoreThanFive(int value, StringBuilder sb)
@@ -66,15 +51,34 @@ namespace Nvmerals
             return value;
         }
 
-        private static int DoTheIs(int value, StringBuilder sb)
+
+        private static int DoTheIX(int value, StringBuilder sb)
         {
-            while (value > 0)
+            if (value == 9)
             {
-                sb.Append("I");
-                value--;
+                value -= 9;
+                sb.Append("IX");
             }
 
             return value;
+        }
+        private static int DoTheNs(int n, string s, int value, StringBuilder sb)
+        {
+            while (value >= n)
+            {
+                value -= n;
+                sb.Append(s);
+            }
+
+            return value;
+        }
+        private static int DoTheXs(int value, StringBuilder sb)
+        {
+            return DoTheNs(10,"X",value,sb);
+        }
+        private static int DoTheIs(int value, StringBuilder sb)
+        {
+            return DoTheNs(1,"I",value,sb);
         }
     }
 }
