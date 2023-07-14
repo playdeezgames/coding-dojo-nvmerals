@@ -21,6 +21,7 @@ namespace Nvmerals.Tests
         [InlineData(20,"XX")]
         [InlineData(40,"XL")]
         [InlineData(50,"L")]
+        [InlineData(90,"XC")]
         public void convert_integers_into_roman_numeral_equivalent(int givenValue, string expectedResult)
         {
             var actual = Romanizer.Romanize(givenValue);
