@@ -16,6 +16,12 @@ namespace Nvmerals
         {
             var sb = new StringBuilder();
 
+            if(value>=10)
+            {
+                value -= 10;
+                sb.Append("X");
+            }
+
             value = DoTheIX(value, sb);
 
             value = AddVWhenMoreThanFive(value, sb);
