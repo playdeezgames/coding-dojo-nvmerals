@@ -31,36 +31,18 @@ namespace Nvmerals
 
         private static int AddVWhenMoreThanFive(int value, StringBuilder sb)
         {
-            if (value >= 5)
-            {
-                sb.Append("V");
-                value -= 5;
-            }
-
-            return value;
+            return DoTheNs(5,"V",value,sb);
         }
 
         private static int DoTheIV(int value, StringBuilder sb)
         {
-            if (value == 4)
-            {
-                sb.Append("IV");
-                value -= 4;
-            }
-
-            return value;
+            return DoTheNs(4,"IV",value,sb);
         }
 
 
         private static int DoTheIX(int value, StringBuilder sb)
         {
-            if (value == 9)
-            {
-                value -= 9;
-                sb.Append("IX");
-            }
-
-            return value;
+            return DoTheNs(9,"IX",value, sb);
         }
         private static int DoTheNs(int n, string s, int value, StringBuilder sb)
         {
