@@ -26,6 +26,8 @@ namespace Nvmerals.Tests
         [InlineData(400,"CD")]
         [InlineData(500,"D")]
         [InlineData(900,"CM")]
+        [InlineData(1000,"M")]
+        [InlineData(3999,"MMMCMXCIX")]
         public void convert_integers_into_roman_numeral_equivalent(int givenValue, string expectedResult)
         {
             var actual = Romanizer.Romanize(givenValue);
