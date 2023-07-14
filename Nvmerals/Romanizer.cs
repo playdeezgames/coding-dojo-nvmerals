@@ -15,6 +15,7 @@ namespace Nvmerals
         // M - 1000
         private static readonly IReadOnlyList<(int number, string text)> grapthars=new List<(int,string)>
         {
+            (400,"CD"),
             (100,"C"),
             (90,"XC"),
             (50,"L"),
