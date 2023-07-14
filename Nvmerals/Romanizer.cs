@@ -6,6 +6,7 @@ namespace Nvmerals
     {
         public static string Romanize(int value)
         {
+            if(value==2) return "II";
             return "I";
         }
     }

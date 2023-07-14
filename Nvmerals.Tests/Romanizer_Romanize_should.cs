@@ -6,6 +6,7 @@ namespace Nvmerals.Tests
     {
         [Theory]
         [InlineData(1,"I")]
+        [InlineData(2,"II")]
         public void convert_integers_into_roman_numeral_equivalent(int givenValue, string expectedResult)
         {
             Romanizer.Romanize(givenValue).ShouldBe(expectedResult);
