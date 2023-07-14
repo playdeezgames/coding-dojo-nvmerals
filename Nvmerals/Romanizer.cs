@@ -1,20 +1,42 @@
 ﻿using System;
+using System.Text;
 
 namespace Nvmerals
 {
     public static class Romanizer
     {
+        // I - 1
+        // V - 5
+        // X - 10
+        // L - 50
+        // C - 100
+        // D - 500
+        // M - 1000
         public static string Romanize(int value)
         {
             if(value==9) return "IX";
-            else if(value==8) return "VIII";
-            else if(value==7) return "VII";
-            else if(value==6) return "VI";
-            else if(value==5) return "V";
-            else if(value==4) return "IV";
-            else if(value==3) return "III";
-            else if(value==2) return "II";
-            else return "I";
+
+            var sb = new StringBuilder();
+
+            if(value>=5)
+            {
+                sb.Append("V");
+                value-=5;
+            }
+
+            if(value==4)
+            {
+                sb.Append("IV");
+                value-=4;
+            }
+
+            while(value>0)
+            {
+                sb.Append("I");
+                value--;
+            }
+            
+            return sb.ToString();
         }
     }
 }
