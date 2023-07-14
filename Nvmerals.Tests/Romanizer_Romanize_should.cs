@@ -11,6 +11,7 @@ namespace Nvmerals.Tests
         [InlineData(4,"IV")]
         [InlineData(5,"V")]
         [InlineData(6,"VI")]
+        [InlineData(7,"VII")]
         public void convert_integers_into_roman_numeral_equivalent(int givenValue, string expectedResult)
         {
             Romanizer.Romanize(givenValue).ShouldBe(expectedResult);
