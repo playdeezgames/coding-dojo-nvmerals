@@ -16,7 +16,9 @@ namespace Nvmerals.Tests
         [InlineData(9,"IX")]
         public void convert_integers_into_roman_numeral_equivalent(int givenValue, string expectedResult)
         {
-            Romanizer.Romanize(givenValue).ShouldBe(expectedResult);
+            var actual = Romanizer.Romanize(givenValue);
+            actual.ShouldBe(expectedResult);
+            actual.Count(x=>x=='I').ShouldBeLessThanOrEqualTo(3);
         }
     }
 }
